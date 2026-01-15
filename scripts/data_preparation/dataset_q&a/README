@@ -1,0 +1,44 @@
+# README: Pali Canon Q&A Dataset Extraction
+
+### Project Overview
+This project processes Stack Exchange `Posts.xml` data to isolate high-quality Q&A pairs specifically tagged with both **pali-canon** and **reference-request**.
+
+### Scripts & Workflow
+
+#### 1. Indexing Script
+**File:** `index_questions_list_pali-canon_AND_referrence-request.py`
+* **Input:** `Posts.xml`
+* **Function:** Performs a rapid scan of the XML to identify all questions meeting the dual-tag criteria.
+* **Output:** `PaliCanon_Questions.xlsx` (Index of 115 questions).
+* **Usage:** Used for preliminary analysis before full data extraction.
+
+#### 2. Full Extraction & Filter Script
+**File:** `final_dataset_qa_and_filter.py`
+* **Input:** `Posts.xml`
+* **Logic:**
+    * **Data Points:** Extracts Question Title, Question Body, Best Answer Body, and all associated Tags.
+    * **Automatic Citation Detection:** Uses a `cite_regex` to scan answers for valid Pali Canon references (e.g., MN, DN, SuttaCentral links).
+    * **Flagging:** Adds a `pali_canon_cite` column (1 for cited, 0 for not).
+* **Outputs:**
+    * `PaliCanon_QA_All_Requests.xlsx`: The complete dataset (114 rows).
+    * `PaliCanon_QA_Cited_Only.xlsx`: A cleaned version containing only cited answers (96 rows), with the flag column removed.
+
+### Execution Results (Terminal)
+```bash
+> python .\index_questions_list_pali-canon_AND_referrence-request.py
+Extraction complete. 115 questions saved to PaliCanon_Questions_115.xlsx
+
+> python .\final_dataset_qa_and_filter.py
+Step 1: Parsing XML...
+Step 2: Processing content and citations...
+Success!
+1. Full File: PaliCanon_QA_All_Requests.xlsx (114 rows)
+2. Filtered File (Cite=1 Only): PaliCanon_QA_Cited_Only.xlsx (96 rows)
+```
+
+### Manual Refinement
+Following the script execution, a manual audit was performed on the rows flagged as 0.
+
+* **Process:** Analyzed the 18 rows flagged as 0 in `PaliCanon_QA_All_Requests.xlsx` to identify valid references missed by the automated regex.
+* **Finding:** 4 additional valid reference answers were identified (Manual Citation Detection).
+* **Final Count:** Through this manual verification, the high-quality dataset was increased from 96 to **100 valid entries**.

@@ -1,0 +1,8 @@
+- Create Q&A excel with columns (Question, Answer, Pali Cite). From the 500 total, use subset of 300 (where Pali Cite is True), futhermore, create a test set for prototyping.
+
+
+- LLM model size; temperature; prompt ("include Pali Cite").
+- Check if LLM output Citation is accurate: Pali Citation Similarity (exact word by word)
+
+- Create new dataset Q&A not publicly available (incase of overfitting). Address this concern, it is mitigated by using PaliCanonSimilarity: if we get 100% direct cites with LLM alone, we can conclude it is overfitting.
+

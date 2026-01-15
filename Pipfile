@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pandas = "*"
+numpy = "*"
+openpyxl = "*"
+lxml = "*"
+beautifulsoup4 = "*"
+tiktoken = "*"
+ollama = "*"
+chromadb = "*"
+semantic-router = "*"
+pymupdf4llm = "*"
+pathlib = "*"
+langchain-text-splitters = "*"
+loguru = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

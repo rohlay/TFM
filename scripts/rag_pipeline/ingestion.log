@@ -1,0 +1,21 @@
+2026-01-15 18:14:36.973 | INFO     | __main__:main:128 - STARTING INGESTION | Source: ati | Model: nomic-embed-text
+2026-01-15 18:14:37.564 | INFO     | __main__:process_ati_source:107 - Parallel threads: 8
+2026-01-15 18:15:43.922 | INFO     | __main__:process_ati_row:99 - Indexed dn.09.0.than.html: 122 chunks
+2026-01-15 18:16:50.065 | INFO     | __main__:main:128 - STARTING INGESTION | Source: ati | Model: nomic-embed-text
+2026-01-15 18:16:50.653 | INFO     | __main__:process_ati_source:107 - Parallel threads: 2
+2026-01-15 18:18:18.322 | INFO     | __main__:main:128 - STARTING INGESTION | Source: ati | Model: nomic-embed-text
+2026-01-15 18:18:18.909 | INFO     | __main__:process_ati_source:107 - Parallel threads: 2
+2026-01-15 18:19:54.523 | INFO     | __main__:process_ati_row:99 - Indexed dn.02.0.than.html: 220 chunks
+2026-01-15 18:20:47.531 | INFO     | __main__:main:128 - STARTING INGESTION | Source: ati | Model: nomic-embed-text
+2026-01-15 18:20:48.183 | INFO     | __main__:process_ati_source:107 - Parallel threads: 16
+2026-01-15 18:21:15.543 | INFO     | __main__:process_ati_row:99 - Indexed dn.20.0.piya.html: 37 chunks
+2026-01-15 18:21:26.789 | INFO     | __main__:process_ati_row:99 - Indexed dn.26.0.than.html: 25 chunks
+2026-01-15 18:21:26.833 | DEBUG    | __main__:process_ati_row:82 - Skipping empty file: Majjhima_Index.html
+2026-01-15 18:21:43.787 | INFO     | __main__:process_ati_row:99 - Indexed dn.20.0.than.html: 35 chunks
+2026-01-15 18:22:10.479 | INFO     | __main__:process_ati_row:99 - Indexed dn.31.0.nara.html: 45 chunks
+2026-01-15 18:22:34.014 | INFO     | __main__:process_ati_row:99 - Indexed dn.21.2x.than.html: 51 chunks
+2026-01-15 18:22:59.106 | INFO     | __main__:process_ati_row:99 - Indexed dn.31.0.ksw0.html: 51 chunks
+2026-01-15 18:24:35.508 | INFO     | __main__:main:128 - STARTING INGESTION | Source: book | Model: nomic-embed-text
+2026-01-15 18:24:35.509 | DEBUG    | __main__:process_markdown:44 - Reading book from C:\Users\rohan\ws\LFS_local\TFM-data\what_the_buddha_taught.md
+2026-01-15 18:35:31.650 | SUCCESS  | __main__:process_markdown:57 - Successfully indexed Book: 1007 chunks
+2026-01-15 18:35:31.669 | SUCCESS  | __main__:main:136 - INGESTION COMPLETE | Collection: book_nomic_embed_text
