@@ -23,10 +23,10 @@ CHUNK_SIZE = 512
 CHUNK_OVERLAP = 100 # 20%
 SERVER = True
 if SERVER:
-    ATI_BASE_PATH = "/disk1/rlaycock/rag/data/ati"
-    ATI_EXCEL_PATH = "/disk1/rlaycock/rag/data/ati_index_metadata.xlsx"
-    MD_FILE_PATH = "/disk1/rlaycock/rag/data/wbt.md"
-    DB_ROOT = "/disk1/rlaycock/rag/rag_db/sutta_vector_db"
+    ATI_BASE_PATH = Path("/disk1/rlaycock/rag/data/ati")
+    ATI_EXCEL_PATH = Path("/disk1/rlaycock/rag/data/ati_index_metadata.xlsx")
+    MD_FILE_PATH = Path("/disk1/rlaycock/rag/data/wbt.md")
+    DB_ROOT = Path("/disk1/rlaycock/rag/rag_db/sutta_vector_db")
 else:
     ATI_BASE_PATH = Path(r"C:\Users\rohan\ws\git\TFM\data\data-tipitaka\src")
     ATI_EXCEL_PATH = r"C:\Users\rohan\ws\git\TFM\data\data-tipitaka\database\ati_index_metadata.xlsx"
