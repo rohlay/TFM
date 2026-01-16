@@ -1,7 +1,16 @@
 #!/bin/bash
 
-# Nomic Embed Text v1.5
-python3 ingest.py --model nomic-embed-text:v1.5 --source book
-python3 ingest.py --model nomic-embed-text:v1.5 --source ati
+# --- SELECT MODEL (Uncomment only one) ---
+MODEL="nomic-embed-text:v1.5"
+#MODEL="jina/jina-embeddings-v2-base-en:latest"
+#MODEL="mxbai-embed-large:latest"
+#MODEL="bge-m3:latest"
+#MODEL="embeddinggemma:latest"
 
-echo "All valid embedding models ingested successfully."
+# --- EXECUTION ---
+echo "Starting ingestion for model: $MODEL"
+
+python3 ingest.py --model "$MODEL" --source book
+python3 ingest.py --model "$MODEL" --source ati --threads 8
+
+echo "Ingestion for $MODEL completed successfully."

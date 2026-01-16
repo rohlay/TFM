@@ -23,7 +23,7 @@ CHUNK_SIZE = 512
 CHUNK_OVERLAP = 100 # 20%
 SERVER = True
 if SERVER:
-    ATI_BASE_PATH = Path("/disk1/rlaycock/rag/data/ati")
+    ATI_BASE_PATH = Path("/disk1/rlaycock/rag/data/ati/tipitaka")
     ATI_EXCEL_PATH = Path("/disk1/rlaycock/rag/data/ati_index_metadata.xlsx")
     MD_FILE_PATH = Path("/disk1/rlaycock/rag/data/wbt.md")
     DB_ROOT = Path("/disk1/rlaycock/rag/rag_db/sutta_vector_db")
@@ -114,7 +114,7 @@ def process_ati_row(row, model_name, collection):
 
 def process_ati_source(df, model_name, collection, threads):
     if threads > 1:
-        logger.info(f"Parallel threads: {threads}")
+        logger.info(f"Parallel threads: {threads}") # TODO: Multithreading not tested
         with ThreadPoolExecutor(max_workers=threads) as executor:
             futures = [executor.submit(process_ati_row, row, model_name, collection) for _, row in df.iterrows()]
             for future in as_completed(futures):
@@ -132,6 +132,8 @@ def main():
     args = parser.parse_args()
 
     client = chromadb.PersistentClient(path=DB_ROOT)
+    if args.model=="jina/jina-embeddings-v2-base-en:latest":
+        args.model="jina-v2"
     col_name = f"{args.source}_{args.model.replace(':', '_').replace('-', '_')}"
     collection = client.get_or_create_collection(name=col_name, metadata={"hnsw:space": "cosine"})
 
