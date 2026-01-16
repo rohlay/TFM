@@ -133,7 +133,7 @@ def main():
 
     client = chromadb.PersistentClient(path=DB_ROOT)
     if args.model=="jina/jina-embeddings-v2-base-en:latest":
-        args.model="jina-v2"
+        col_name = f"{args.source}_jina-v2"
     col_name = f"{args.source}_{args.model.replace(':', '_').replace('-', '_')}"
     collection = client.get_or_create_collection(name=col_name, metadata={"hnsw:space": "cosine"})
 
