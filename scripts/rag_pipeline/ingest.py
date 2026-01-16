@@ -20,18 +20,22 @@ logger.add("ingestion.log", rotation="10 MB", level="DEBUG")
 
 # --- CONFIG ---
 CHUNK_SIZE = 512
-CHUNK_OVERLAP = 50
-SERVER = False
-if not SERVER:
-    ATI_BASE_PATH = Path(r"C:\Users\rohan\ws\git\TFM\data\data-tipitaka\src")
-    ATI_EXCEL_PATH = r"C:\Users\rohan\ws\git\TFM\data\data-tipitaka\database\ati_index_metadata.xlsx"
-    MD_FILE_PATH = Path(r"C:\Users\rohan\ws\LFS_local\TFM-data\what_the_buddha_taught.md")
-    DB_ROOT = "./sutta_vector_db"
+CHUNK_OVERLAP = 100 # 20%
+SERVER = True
+if SERVER:
+    ATI_BASE_PATH = "/disk1/rlaycock/rag/data/ati"
+    ATI_EXCEL_PATH = "/disk1/rlaycock/rag/data/ati_index_metadata.xlsx"
+    MD_FILE_PATH = "/disk1/rlaycock/rag/data/wbt.md"
+    DB_ROOT = "/disk1/rlaycock/rag/rag_db/sutta_vector_db"
 else:
     ATI_BASE_PATH = Path(r"C:\Users\rohan\ws\git\TFM\data\data-tipitaka\src")
     ATI_EXCEL_PATH = r"C:\Users\rohan\ws\git\TFM\data\data-tipitaka\database\ati_index_metadata.xlsx"
     MD_FILE_PATH = Path(r"C:\Users\rohan\ws\LFS_local\TFM-data\what_the_buddha_taught.md")
     DB_ROOT = "./sutta_vector_db"
+
+
+# Initialize Ollama Client
+client = ollama.Client(host='http://localhost:11434')
 
 text_chunker = RecursiveCharacterTextSplitter(
     chunk_size=CHUNK_SIZE,
@@ -51,7 +55,7 @@ def process_markdown(md_path, model_name, collection):
         raw_text = md_path.read_text(encoding='utf-8')
         chunks = text_chunker.split_text(raw_text)
         
-        response = ollama.embed(model=model_name, input=chunks)
+        response = client.embed(model=model_name, input=chunks)
         embeddings = response['embeddings']
 
         collection.add(
@@ -89,7 +93,7 @@ def process_ati_row(row, model_name, collection):
             return
 
         chunks = text_chunker.split_text(raw_text)
-        response = ollama.embed(model=model_name, input=chunks)
+        response = client.embed(model=model_name, input=chunks)
         
         collection.add(
             ids=[f"{filename}_c{i}" for i in range(len(chunks))],

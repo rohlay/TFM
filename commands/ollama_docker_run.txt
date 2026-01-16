@@ -1,0 +1,16 @@
+
+from terminal:
+curl http://localhost:11434/api/tags
+
+
+# Stop and remove the existing container
+docker stop ollama
+docker rm ollama
+
+# Start it again, explicitly requesting ONLY GPU 1
+docker run -d \
+  --device nvidia.com/gpu=1 \
+  -v ollama_data:/root/.ollama \
+  -p 11434:11434 \
+  --name ollama \
+  ollama/ollama

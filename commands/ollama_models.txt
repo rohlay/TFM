@@ -1,0 +1,57 @@
+
+
+# UPLOAD/DOWNLOAD DATA TO SERVER
+
+# Upload a single file
+scp C:\Users\rohan\ws\git\TFM\data\ati_index_metadata.xlsx rlaycock@mlworkstation:/disk1/rlaycock/rag/data
+
+# Upload a whole directory (the -r flag)
+scp -r C:\Users\rohan\ws\git\TFM\data\data-tipitaka\src rlaycock@mlworkstation:/disk1/rlaycock/rag/data
+
+
+
+#######################
+
+
+# Docker Ollama container:
+docker ps
+docker exec -it ollama /bin/bash
+docker exec -it ollama ollama list
+
+Pull models:
+
+docker exec -it ollama ollama pull bge-m3
+docker exec -it ollama ollama pull mxbai-embed-large
+
+# 1. Nomic Embed Text v1.5
+docker exec -it ollama ollama pull nomic-embed-text:v1.5
+
+# 2. Gemma 2 9B (Instruct variant)
+docker exec -it ollama ollama pull gemma2:9b
+
+# 3. BGE-M3 (Multilingual Embedding)
+docker exec -it ollama ollama pull bge-m3
+
+# For the 0.6B Specialized Embedding model (Better for your Pali RAG)
+docker exec -it ollama ollama pull qwen3-embedding:0.6b
+docker exec -it ollama ollama pull qwen3-embedding:4b
+docker exec -it ollama ollama pull qwen3-embedding:8b
+
+# 5. Jina Embedding (v2 is the current Ollama stable version)
+docker exec -it ollama ollama pull jina/jina-embeddings-v2-base-en
+
+
+# PULLED MODELS
+
+nomic-embed-text:v1.5
+bge-m3
+gemma2:9b
+qwen3-embedding:8b
+qwen3-embedding:4b
+
+embeddinggemma:latest                     85462619ee72    621 MB    9 seconds ago
+mxbai-embed-large:latest                  468836162de7    669 MB    4 minutes ago
+jina/jina-embeddings-v2-base-en:latest    377193292084    274 MB    8 minutes ago
+bge-m3:latest                             790764642607    1.2 GB    14 minutes ago
+gemma2:9b                                 ff02c3702f32    5.4 GB    19 minutes ago
+nomic-embed-text:v1.5                     0a109f422b47    274 MB    28 minutes ago

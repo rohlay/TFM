@@ -1,0 +1,17 @@
+
+
+# UPLOAD/DOWNLOAD DATA TO SERVER
+
+# Upload a single file
+scp C:\Users\rohan\ws\git\TFM\data\ati_index_metadata.xlsx rlaycock@mlworkstation:/disk1/rlaycock/rag/data
+
+# Upload a whole directory (the -r flag)
+scp -r C:\Users\rohan\ws\git\TFM\data\data-tipitaka\src rlaycock@mlworkstation:/disk1/rlaycock/rag/data
+
+
+#######################
+
+# Upload data
+scp -P 5455 -r C:\Users\rohan\ws\LFS_local\data_server\* rlaycock@nas4i01.synology.me:/disk1/rlaycock/rag/
+
+scp -P 5455 C:\Users\rohan\ws\LFS_local\data_server\ati_index_metadata.xlsx rlaycock@nas4i01.synology.me:/disk1/rlaycock/rag/data/

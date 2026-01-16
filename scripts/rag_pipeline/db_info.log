@@ -1,0 +1,5 @@
+(TFM) PS C:\Users\rohan\ws\git\TFM\scripts\rag_pipeline> python ingest.py --model nomic-embed-text --source book
+2026-01-15 18:24:35.508 | INFO     | __main__:main:128 - STARTING INGESTION | Source: book | Model: nomic-embed-text
+2026-01-15 18:24:35.509 | DEBUG    | __main__:process_markdown:44 - Reading book from C:\Users\rohan\ws\LFS_local\TFM-data\what_the_buddha_taught.md
+2026-01-15 18:35:31.650 | SUCCESS  | __main__:process_markdown:57 - Successfully indexed Book: 1007 chunks
+2026-01-15 18:35:31.669 | SUCCESS  | __main__:main:136 - INGESTION COMPLETE | Collection: book_nomic_embed_text
