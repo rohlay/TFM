@@ -17,6 +17,10 @@ pymupdf4llm = "*"
 pathlib = "*"
 langchain-text-splitters = "*"
 loguru = "*"
+torch = "*"
+transformers = "*"
+rouge-score = "*"
+bert-score = "*"
 
 [dev-packages]
 

@@ -5,7 +5,6 @@ MODEL="nomic-embed-text:v1.5"
 #MODEL="jina/jina-embeddings-v2-base-en:latest"
 #MODEL="mxbai-embed-large:latest"
 #MODEL="bge-m3:latest"
-#MODEL="embeddinggemma:latest"
 
 # --- EXECUTION ---
 echo "Starting ingestion for model: $MODEL"

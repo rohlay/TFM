@@ -1,7 +1,7 @@
 import chromadb
 
 # Point this to your DB_ROOT
-DB_ROOT = "./sutta_vector_db"
+DB_ROOT = r"C:\Users\rohan\ws\LFS_local\data_server\sutta_vector_db"
 
 def verify():
     client = chromadb.PersistentClient(path=DB_ROOT)
